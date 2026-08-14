@@ -1,0 +1,159 @@
+:root {
+  --frame-width: 1440;
+  --frame-height: 960;
+  --bg: #f4f4f4;
+  --ink: #000;
+  --placeholder-border: #b3b3b3;
+  --placeholder-bg: #e4e4e4;
+  --placeholder-label: #7a7a7a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+}
+
+body {
+  font-family: "Courier Prime", "Courier New", monospace;
+  color: var(--ink);
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  max-width: calc(var(--frame-width) * 1px);
+  aspect-ratio: var(--frame-width) / var(--frame-height);
+  margin: 0 auto;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+/* --- Illustration / note placeholders --- */
+.illustration,
+.note {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: 2px dashed var(--placeholder-border);
+  background: var(--placeholder-bg);
+  border-radius: 8px;
+}
+
+.illustration__label {
+  font-family: "Courier Prime", "Courier New", monospace;
+  font-size: clamp(9px, 1vw, 13px);
+  color: var(--placeholder-label);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.4em;
+}
+
+.note {
+  background: transparent;
+  border-style: dotted;
+}
+
+.illustration--thumb {
+  left: 13.889%;
+  top: 5.833%;
+  width: 24.653%;
+  height: 36.979%;
+}
+
+.illustration--heart {
+  left: 39.583%;
+  top: 33.542%;
+  width: 26.319%;
+  height: 39.479%;
+}
+
+.note--lebenslauf {
+  left: 0%;
+  top: 17.917%;
+  width: 10.417%;
+  height: 15.625%;
+}
+
+.note--burger {
+  left: 89.583%;
+  top: 17.917%;
+  width: 10.417%;
+  height: 15.625%;
+}
+
+/* --- Headline --- */
+.headline {
+  position: absolute;
+  left: 13.889%;
+  top: 26.667%;
+  width: 72.292%;
+  margin: 0;
+  font-family: "Prompt", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+  font-size: clamp(32px, 11.111vw, 160px);
+  line-height: 0.6;
+  color: var(--ink);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* --- Body copy --- */
+.body-text {
+  position: absolute;
+  left: 13.889%;
+  top: 85%;
+  width: 45.972%;
+  margin: 0;
+  font-family: "Courier Prime", "Courier New", monospace;
+  font-size: clamp(11px, 1.111vw, 16px);
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+/* --- Small screens: drop the absolute canvas for a readable stacked layout --- */
+@media (max-width: 640px) {
+  .hero {
+    aspect-ratio: auto;
+    min-height: auto;
+    padding: 64px 20px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .illustration,
+  .note {
+    position: static;
+    width: 100%;
+    max-width: 220px;
+    aspect-ratio: 1 / 1;
+    height: auto;
+  }
+
+  .note--lebenslauf,
+  .note--burger {
+    max-width: 140px;
+  }
+
+  .headline {
+    position: static;
+    width: 100%;
+    font-size: clamp(28px, 12vw, 64px);
+    line-height: 1.05;
+  }
+
+  .body-text {
+    position: static;
+    width: 100%;
+    font-size: 14px;
+  }
+}
