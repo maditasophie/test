@@ -3,9 +3,6 @@
   --frame-height: 960;
   --bg: #f4f4f4;
   --ink: #000;
-  --placeholder-border: #b3b3b3;
-  --placeholder-bg: #e4e4e4;
-  --placeholder-label: #7a7a7a;
 }
 
 * {
@@ -34,31 +31,19 @@ body {
   background: var(--bg);
 }
 
-/* --- Illustration / note placeholders --- */
+/* --- Illustrations / handwritten notes --- */
 .illustration,
 .note {
   position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  border: 2px dashed var(--placeholder-border);
-  background: var(--placeholder-bg);
-  border-radius: 8px;
 }
 
-.illustration__label {
-  font-family: "Courier Prime", "Courier New", monospace;
-  font-size: clamp(9px, 1vw, 13px);
-  color: var(--placeholder-label);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 0.4em;
-}
-
-.note {
-  background: transparent;
-  border-style: dotted;
+.illustration img,
+.note img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
 }
 
 .illustration--thumb {
